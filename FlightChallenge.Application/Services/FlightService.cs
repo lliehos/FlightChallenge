@@ -4,9 +4,11 @@ using FlightChallenge.Application.Interfaces;
 using FlightChallenge.Application.Validators;
 using FlightChallenge.Domain.Entities;
 using FlightChallenge.Domain.Interfaces;
+using FluentValidation;
 using System;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FlightChallenge.Application.Services
 {
@@ -14,13 +16,13 @@ namespace FlightChallenge.Application.Services
     {
         private readonly IFlightRepository _flightRepository;
         private readonly IMapper _mapper;
-        private readonly CreateFlightDtoValidator _createFlightDtoValidator;
+        private readonly IValidator<FlightCreateDto> _createFlightValidator;
 
-        public FlightService(IFlightRepository flightRepository, IMapper mapper)
+        public FlightService(IFlightRepository flightRepository, IMapper mapper, IValidator<FlightCreateDto> createFlightValidator)
         {
             _flightRepository = flightRepository;
             _mapper = mapper;
-            _createFlightDtoValidator = new CreateFlightDtoValidator();
+            _createFlightValidator = createFlightValidator;
         }
 
         public async Task<FlightDto> GetFlightByIdAsync(int id)
@@ -35,19 +37,20 @@ namespace FlightChallenge.Application.Services
             return _mapper.Map<IEnumerable<FlightDto>>(flights);
         }
 
-        public async Task<ResponseDto> AddFlightAsync(FlightCreateDto flight)
+        public async Task<ServiceResponse<FlightDto>> AddFlightAsync(FlightCreateDto flight)
         {
-            var result=_createFlightDtoValidator.Validate(flight);
+            var result = await _createFlightValidator.ValidateAsync(flight);
             if (result.IsValid)
             {
                 var flightEntity = _mapper.Map<Flight>(flight);
                 var addedFlight = await _flightRepository.AddFlightAsync(flightEntity);
-                return new ResponseDto() { IsSucceed = true, Data = _mapper.Map<FlightDto>(addedFlight) };
+                return new ServiceResponse<FlightDto>() { Success = true, Data = _mapper.Map<FlightDto>(addedFlight) };
             }
             else
             {
-                return new ResponseDto() {IsSucceed=false, Data= result.Errors.Select(p=>new {p.PropertyName,p.ErrorMessage})};
+                return new ServiceResponse<FlightDto>() { Success = false, Errors= result.Errors.Select(e => e.ErrorMessage).ToList() };
             }
+
         }
 
         public async Task<FlightDto> UpdateFlightAsync(int id, FlightUpdateDto flight)

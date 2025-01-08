@@ -92,3 +92,67 @@ Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'object' does not contain
 2025-01-08 18:11:36.736 +03:30 [INF] Response Status Code: 500
 2025-01-08 18:12:39.660 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
 2025-01-08 18:12:39.837 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:13:39.428 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:13:39.604 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:13:59.861 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:13:59.867 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:14:02.816 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:14:02.820 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:14:10.405 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:14:10.567 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:14:19.493 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:14:19.547 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:15:14.380 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: 
+2025-01-08 18:15:14.407 +03:30 [INF] Response Status Code: 200
+2025-01-08 18:31:24.346 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:31:24.639 +03:30 [ERR] An error occurred in the controller
+System.InvalidCastException: Unable to cast object of type 'FlightChallenge.Application.Dtos.FlightCreateDto' to type 'FluentValidation.IValidationContext'.
+   at FlightChallenge.Application.Services.FlightService.AddFlightAsync(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge.Application\Services\FlightService.cs:line 51
+   at FlightChallenge.Controllers.FlightController.CreateFlight(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Controllers\FlightController.cs:line 38
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-08 18:31:24.653 +03:30 [INF] Response Status Code: 500
+2025-01-08 18:33:28.763 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:36:38.373 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:37:00.696 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:40:44.411 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:43:24.802 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:43:25.381 +03:30 [ERR] An error occurred in the controller
+FluentValidation.ValidationException: Validation failed: 
+ -- DepartureTime: Departure time must be in the future. Severity: Error
+   at FlightChallenge.Application.Services.FlightService.AddFlightAsync(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge.Application\Services\FlightService.cs:line 53
+   at FlightChallenge.Controllers.FlightController.CreateFlight(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Controllers\FlightController.cs:line 38
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-08 18:43:25.409 +03:30 [INF] Response Status Code: 500
+2025-01-08 18:53:39.237 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:53:39.384 +03:30 [ERR] An error occurred in the controller
+System.InvalidCastException: Unable to cast object of type 'FlightChallenge.Application.Dtos.FlightCreateDto' to type 'FluentValidation.IValidationContext'.
+   at FlightChallenge.Application.Services.FlightService.AddFlightAsync(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge.Application\Services\FlightService.cs:line 42
+   at FlightChallenge.Controllers.FlightController.CreateFlight(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Controllers\FlightController.cs:line 38
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-08 18:53:39.396 +03:30 [INF] Response Status Code: 500
+2025-01-08 18:54:09.966 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:55:16.613 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:55:16.874 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:57:15.873 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:57:16.043 +03:30 [INF] Response Status Code: 400

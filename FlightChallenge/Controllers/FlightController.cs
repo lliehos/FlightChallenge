@@ -36,7 +36,11 @@ namespace FlightChallenge.Controllers
         public async Task<IActionResult> CreateFlight([FromBody] FlightCreateDto flight)
         {
             var createdFlight = await _flightService.AddFlightAsync(flight);
-            return CreatedAtAction(nameof(GetFlights), createdFlight.Data is FlightDto? new { id = createdFlight.Data?.Id }:null, createdFlight);
+            if (createdFlight.Success)
+            {
+                return CreatedAtAction(nameof(GetFlights), new { id = createdFlight.Data?.Id }, createdFlight.Data);
+            }
+            return BadRequest(createdFlight.Errors);
         }
     }
 }
