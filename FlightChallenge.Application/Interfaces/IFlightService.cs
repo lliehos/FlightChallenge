@@ -12,7 +12,7 @@ namespace FlightChallenge.Application.Interfaces
         Task<FlightDto> GetFlightByIdAsync(int id);
         Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate);
         Task<ServiceResponse<FlightDto>> AddFlightAsync(FlightCreateDto flight);
-        Task<FlightDto> UpdateFlightAsync(int id, FlightUpdateDto flight);
+        Task<ServiceResponse<FlightDto>> UpdateFlightAsync(int id, FlightUpdateDto flight);
         Task<bool> DeleteFlightAsync(int id);
     }
 }

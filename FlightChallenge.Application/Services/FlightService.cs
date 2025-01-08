@@ -17,6 +17,7 @@ namespace FlightChallenge.Application.Services
         private readonly IFlightRepository _flightRepository;
         private readonly IMapper _mapper;
         private readonly IValidator<FlightCreateDto> _createFlightValidator;
+        private readonly IValidator<FlightUpdateDto> _updateFlightValidator;
 
         public FlightService(IFlightRepository flightRepository, IMapper mapper, IValidator<FlightCreateDto> createFlightValidator)
         {
@@ -52,16 +53,22 @@ namespace FlightChallenge.Application.Services
             }
 
         }
-
-        public async Task<FlightDto> UpdateFlightAsync(int id, FlightUpdateDto flight)
+        public async Task<ServiceResponse<FlightDto>> UpdateFlightAsync(int id, FlightUpdateDto flight)
         {
             var flightEntity = await _flightRepository.GetFlightByIdAsync(id);
             if (flightEntity == null)
-                return null;
-
-            _mapper.Map(flight, flightEntity);
-            var updatedFlight = await _flightRepository.UpdateFlightAsync(flightEntity);
-            return _mapper.Map<FlightDto>(updatedFlight);
+                return new ServiceResponse<FlightDto>(){Success=false,Errors=new List<string> {"Invalid id"}};
+            var result = await _updateFlightValidator.ValidateAsync(flight);
+            if (result.IsValid)
+            {
+                _mapper.Map(flight, flightEntity);
+                var updatedFlight = await _flightRepository.UpdateFlightAsync(flightEntity);
+                return new ServiceResponse<FlightDto>() { Success = true, Data = _mapper.Map<FlightDto>(updatedFlight) };
+            }
+            else
+            {
+                return new ServiceResponse<FlightDto>() { Success = false, Errors = result.Errors.Select(e => e.ErrorMessage).ToList() };
+            }
         }
 
         public async Task<bool> DeleteFlightAsync(int id)
