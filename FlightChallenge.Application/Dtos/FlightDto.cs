@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace FlightChallenge.Application.Dtos
 {
-    public class FlightDto
+    public class ResponseDto
+    {
+        public bool IsSucceed { get; set; }
+        public dynamic Data { get; set; }
+    }
+        public class FlightDto
     {
         public int Id { get; set; }
         public string FlightNumber { get; set; }

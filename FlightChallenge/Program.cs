@@ -36,7 +36,6 @@ try
     builder.Services.AddValidatorsFromAssemblyContaining<Program>();
     builder.Services.AddValidatorsFromAssemblyContaining<CreateFlightDtoValidator>();
 
-
     var app = builder.Build();
     using (var scope = app.Services.CreateScope())
     {

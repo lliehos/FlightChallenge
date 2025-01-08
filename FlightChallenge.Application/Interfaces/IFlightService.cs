@@ -11,7 +11,7 @@ namespace FlightChallenge.Application.Interfaces
     {
         Task<FlightDto> GetFlightByIdAsync(int id);
         Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate);
-        Task<FlightDto> AddFlightAsync(FlightCreateDto flight);
+        Task<ResponseDto> AddFlightAsync(FlightCreateDto flight);
         Task<FlightDto> UpdateFlightAsync(int id, FlightUpdateDto flight);
         Task<bool> DeleteFlightAsync(int id);
     }

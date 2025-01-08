@@ -52,3 +52,43 @@ Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
 2025-01-08 16:39:51.216 +03:30 [INF] Response Status Code: 201
 2025-01-08 16:40:16.130 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: 
 2025-01-08 16:40:16.208 +03:30 [INF] Response Status Code: 200
+2025-01-08 17:58:05.091 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 17:58:05.310 +03:30 [ERR] An error occurred in the controller
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FlightChallenge.Application.Services.FlightService.AddFlightAsync(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge.Application\Services\FlightService.cs:line 36
+   at FlightChallenge.Controllers.FlightController.CreateFlight(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Controllers\FlightController.cs:line 38
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-08 17:58:05.334 +03:30 [INF] Response Status Code: 500
+2025-01-08 17:59:13.296 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:00:54.205 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:01:42.280 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:02:33.563 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:02:43.013 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:06:46.328 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:06:46.507 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:08:32.056 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:08:32.237 +03:30 [INF] Response Status Code: 201
+2025-01-08 18:11:36.509 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:11:36.720 +03:30 [ERR] An error occurred in the controller
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'object' does not contain a definition for 'Id'
+   at CallSite.Target(Closure, CallSite, Object)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at FlightChallenge.Controllers.FlightController.CreateFlight(FlightCreateDto flight) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Controllers\FlightController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-08 18:11:36.736 +03:30 [INF] Response Status Code: 500
+2025-01-08 18:12:39.660 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
+2025-01-08 18:12:39.837 +03:30 [INF] Response Status Code: 201
