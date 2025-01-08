@@ -1,16 +1,11 @@
-﻿using FlightChallenge.Application.Commands;
+﻿using FlightChallenge.Application.Dtos;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlightChallenge.Application.Validators
 {
-    public class CreateFlightCommandValidator : AbstractValidator<CreateFlightCommand>
+    public class CreateFlightDtoValidator : AbstractValidator<FlightCreateDto>
     {
-        public CreateFlightCommandValidator()
+        public CreateFlightDtoValidator()
         {
             RuleFor(x => x.FlightNumber).NotEmpty().WithMessage("Flight code is required.");
             RuleFor(x => x.DepartureTime).GreaterThan(DateTime.Now).WithMessage("Departure time must be in the future.");

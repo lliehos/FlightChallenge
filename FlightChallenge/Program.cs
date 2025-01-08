@@ -1,9 +1,11 @@
 using FlightChallenge.Application.Interfaces;
 using FlightChallenge.Application.Services;
+using FlightChallenge.Application.Validators;
 using FlightChallenge.Domain.Interfaces;
 using FlightChallenge.Filters;
 using FlightChallenge.Infrastructure.Repositories;
 using FlightChallenge.Middlewares;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -31,6 +33,9 @@ try
     builder.Services.AddScoped<IFlightRepository, FlightRepository>();
     builder.Services.AddScoped<IFlightService, FlightService>();
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+    builder.Services.AddValidatorsFromAssemblyContaining<CreateFlightDtoValidator>();
+
 
     var app = builder.Build();
     using (var scope = app.Services.CreateScope())
