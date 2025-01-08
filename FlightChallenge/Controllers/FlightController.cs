@@ -1,5 +1,6 @@
 ﻿using FlightChallenge.Application.Dtos;
 using FlightChallenge.Application.Interfaces;
+using FlightChallenge.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlightChallenge.Controllers
@@ -29,6 +30,12 @@ namespace FlightChallenge.Controllers
         {
             var flights = await _flightService.GetFlightsAsync(origin, destination, departureDate);
             return Ok(flights);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateFlight([FromBody] FlightCreateDto flight)
+        {
+            var createdFlight = await _flightService.AddFlightAsync(flight);
+            return CreatedAtAction(nameof(GetFlights), new { id = createdFlight.Id }, createdFlight);
         }
     }
 }

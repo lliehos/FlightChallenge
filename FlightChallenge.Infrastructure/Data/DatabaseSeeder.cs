@@ -325,41 +325,6 @@ public class DatabaseSeeder
             PassengerId = passengers[random.Next(passengers.Count)].Id,
             BookingDate = DateTime.Now,
             SeatNumber = "J10"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "K11"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "L12"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "M13"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "N14"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "O15"
         }
     };
     }
