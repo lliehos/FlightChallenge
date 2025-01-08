@@ -1,11 +1,6 @@
 ﻿using FlightChallenge.Domain.Entities;
 using FlightChallenge.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlightChallenge.Infrastructure.Repositories
 {
