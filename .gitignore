@@ -1,0 +1,51 @@
+# User-specific files
+.idea/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# .NET Core / .NET 5+ specific files
+bin/
+obj/
+
+# User secrets (used for storing sensitive information locally)
+secrets/
+
+# ASP.NET temporary files
+aspnet5/
+
+# Project-specific config files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NUGET
+*.nupkg
+# .NET Core
+project.json
+# ASP.NET Core build files
+wwwroot/
+
+# Docker
+.docker/
+
+# Logs and debugging files
+*.log
+*.vspscc
+.vs/
+
+# Local db files for SQL LocalDB
+*.mdf
+*.ldf

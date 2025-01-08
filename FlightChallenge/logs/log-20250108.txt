@@ -1,0 +1,2 @@
+2025-01-08 11:15:34.874 +03:30 [INF] Request: Method: GET, Path: /Health, QueryString: 
+2025-01-08 11:15:34.945 +03:30 [INF] Response Status Code: 200
