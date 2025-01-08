@@ -42,5 +42,19 @@ namespace FlightChallenge.Controllers
             }
             return BadRequest(createdFlight.Errors);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateFlight(int id, [FromBody] FlightUpdateDto flight)
+        {
+            var updatedFlight = await _flightService.UpdateFlightAsync(id, flight);
+            if (updatedFlight == null)
+            {
+                return NotFound();
+            }
+            if (updatedFlight.Success)
+            {
+                return NoContent();
+            }
+            return BadRequest(updatedFlight.Errors);
+        }
     }
 }

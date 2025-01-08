@@ -156,3 +156,63 @@ System.InvalidCastException: Unable to cast object of type 'FlightChallenge.Appl
 2025-01-08 18:55:16.874 +03:30 [INF] Response Status Code: 201
 2025-01-08 18:57:15.873 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
 2025-01-08 18:57:16.043 +03:30 [INF] Response Status Code: 400
+2025-01-08 19:13:58.615 +03:30 [ERR] An unexpected error occurred
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Flight" for actions - FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge),FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FlightChallenge.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Middlewares\ExceptionMiddleware.cs:line 21
+2025-01-08 19:14:05.821 +03:30 [ERR] An unexpected error occurred
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Flight" for actions - FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge),FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FlightChallenge.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Middlewares\ExceptionMiddleware.cs:line 21
+2025-01-08 19:14:15.675 +03:30 [ERR] An unexpected error occurred
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Flight" for actions - FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge),FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FlightChallenge.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Middlewares\ExceptionMiddleware.cs:line 21
+2025-01-08 19:15:07.071 +03:30 [ERR] An unexpected error occurred
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Flight" for actions - FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge),FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FlightChallenge.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Middlewares\ExceptionMiddleware.cs:line 21
+2025-01-08 19:16:40.203 +03:30 [ERR] An unexpected error occurred
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Flight" for actions - FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge),FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FlightChallenge.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Middlewares\ExceptionMiddleware.cs:line 21
+2025-01-08 19:17:32.540 +03:30 [ERR] An unexpected error occurred
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Flight" for actions - FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge),FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FlightChallenge.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Middlewares\ExceptionMiddleware.cs:line 21
+2025-01-08 19:19:26.529 +03:30 [ERR] An unexpected error occurred
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Flight" for actions - FlightChallenge.Controllers.FlightController.CreateFlight (FlightChallenge),FlightChallenge.Controllers.FlightController.UpdateFlight (FlightChallenge). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FlightChallenge.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Middlewares\ExceptionMiddleware.cs:line 21
+2025-01-08 19:23:00.683 +03:30 [INF] Request: Method: PUT, Path: /api/Flight/6, QueryString: 
+2025-01-08 19:23:00.993 +03:30 [INF] Response Status Code: 404
+2025-01-08 19:23:19.826 +03:30 [INF] Request: Method: PUT, Path: /api/Flight/6, QueryString: 
+2025-01-08 19:24:10.630 +03:30 [INF] Request: Method: PUT, Path: /api/Flight/7, QueryString: 

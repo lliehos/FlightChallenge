@@ -34,7 +34,9 @@ try
     builder.Services.AddScoped<IFlightService, FlightService>();
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
     builder.Services.AddValidatorsFromAssemblyContaining<CreateFlightDtoValidator>();
+    builder.Services.AddValidatorsFromAssemblyContaining<UpdateFlightDtoValidator>();
 
     var app = builder.Build();
     using (var scope = app.Services.CreateScope())
