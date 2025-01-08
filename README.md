@@ -1,7 +1,8 @@
+
 # Travel Booking API
 
 ## Overview
-This is a simple Travel Booking API built using .NET 7, Entity Framework Core, and SQLite. The API allows for managing flights, passengers, and bookings. It includes the basic CRUD operations and error handling, logging, and validation.
+This is a simple Travel Booking API built using .NET 8, Entity Framework Core, and SQLite. The API allows for managing flights, passengers, and bookings. It includes the basic CRUD operations and error handling, logging, and validation.
 
 ## Project Structure
 - **Entities**: Flight, Passenger, Booking
@@ -18,19 +19,16 @@ This is a simple Travel Booking API built using .NET 7, Entity Framework Core, a
 - **API Versioning**: The API supports versioning.
 
 ## Requirements
-- .NET 7 or later
+- .NET 8 or later
 - SQLite Database
 - Entity Framework Core (Code First)
 
 ## Setup Instructions
 
 ### Prerequisites
-- Install [.NET SDK 7](https://dotnet.microsoft.com/download/dotnet/7.0)
+- Install [.NET SDK 8](https://dotnet.microsoft.com/download/dotnet/8.0)
 - Install [SQLite](https://www.sqlite.org/download.html)
 
 ### 1. Clone the Repository
 Clone this repository to your local machine.
 
-```bash
-git clone https://github.com/yourusername/travel-booking-api.git
-cd travel-booking-api
