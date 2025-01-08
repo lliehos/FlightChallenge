@@ -16,29 +16,48 @@ namespace FlightChallenge.Application.Services
 {
     public class FlightService : IFlightService
     {
-        public Task<FlightDto> AddFlightAsync(FlightCreateDto flight)
+        private readonly IFlightRepository _flightRepository;
+        private readonly IMapper _mapper;
+
+        public FlightService(IFlightRepository flightRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _flightRepository = flightRepository;
+            _mapper = mapper;
         }
 
-        public Task<bool> DeleteFlightAsync(int id)
+        public async Task<FlightDto> GetFlightByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var flight = await _flightRepository.GetFlightByIdAsync(id);
+            return _mapper.Map<FlightDto>(flight);
         }
 
-        public Task<FlightDto> GetFlightByIdAsync(int id)
+        public async Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate)
         {
-            throw new NotImplementedException();
+            var flights = await _flightRepository.GetFlightsAsync(origin, destination, departureDate);
+            return _mapper.Map<IEnumerable<FlightDto>>(flights);
         }
 
-        public Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate)
+        public async Task<FlightDto> AddFlightAsync(FlightCreateDto flight)
         {
-            throw new NotImplementedException();
+            var flightEntity = _mapper.Map<Flight>(flight);
+            var addedFlight = await _flightRepository.AddFlightAsync(flightEntity);
+            return _mapper.Map<FlightDto>(addedFlight);
         }
 
-        public Task<FlightDto> UpdateFlightAsync(int id, FlightUpdateDto flight)
+        public async Task<FlightDto> UpdateFlightAsync(int id, FlightUpdateDto flight)
         {
-            throw new NotImplementedException();
+            var flightEntity = await _flightRepository.GetFlightByIdAsync(id);
+            if (flightEntity == null)
+                return null;
+
+            _mapper.Map(flight, flightEntity);
+            var updatedFlight = await _flightRepository.UpdateFlightAsync(flightEntity);
+            return _mapper.Map<FlightDto>(updatedFlight);
+        }
+
+        public async Task<bool> DeleteFlightAsync(int id)
+        {
+            return await _flightRepository.DeleteFlightAsync(id);
         }
     }
 }
