@@ -15,4 +15,5 @@ namespace FlightChallenge.Domain.Interfaces
         Task<Flight> UpdateFlightAsync(Flight flight);
         Task<bool> DeleteFlightAsync(int id);
     }
+
 }
