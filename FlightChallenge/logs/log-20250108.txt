@@ -46,3 +46,5 @@ Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
    at Program.<Main>$(String[] args) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Program.cs:line 32
 2025-01-08 15:39:46.594 +03:30 [INF] Request: Method: POST, Path: /api/Flight, QueryString: 
 2025-01-08 15:39:47.201 +03:30 [INF] Response Status Code: 201
+2025-01-08 15:52:58.509 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: ?origin=%D8%AA%D9%87%D8%B1%D8%A7%D9%86
+2025-01-08 15:52:59.440 +03:30 [INF] Response Status Code: 200
