@@ -14,10 +14,6 @@ public class DatabaseSeeder
             context.Passengers.AddRange(GetSamplePassengers());
             context.SaveChanges();
         }
-        if (!context.Bookings.Any())
-        {
-            GetSampleBookings(context.Flights.ToList(), context.Passengers.ToList());
-        }
     }
     public static List<Flight> GetSampleFlights()
     {
@@ -248,83 +244,6 @@ public class DatabaseSeeder
             FullName = "مهدی زینعلی",
             PassportNumber = "443322",
             PhoneNumber = "9135678903"
-        }
-    };
-    }
-    public static List<Booking> GetSampleBookings(List<Flight> flights, List<Passenger> passengers)
-    {
-        var random = new Random();
-        return new List<Booking>
-    {
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "A1"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "B2"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "C3"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "D4"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "E5"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "F6"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "G7"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "H8"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "I9"
-        },
-        new Booking
-        {
-            FlightId = flights[random.Next(flights.Count)].Id,
-            PassengerId = passengers[random.Next(passengers.Count)].Id,
-            BookingDate = DateTime.Now,
-            SeatNumber = "J10"
         }
     };
     }

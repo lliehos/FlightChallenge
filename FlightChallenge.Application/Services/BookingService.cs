@@ -105,13 +105,6 @@ namespace FlightChallenge.Application.Services
                 return response;
             }
 
-            var anyBookingForFlight = await _bookingRepository.AnyBookingForFlightAsync(bookingEntity.FlightId);
-            if (anyBookingForFlight)
-            {
-                response.Errors.Add("Cannot delete booking because there are still bookings for the flight.");
-                return response;
-            }
-
             await _bookingRepository.DeleteBookingAsync(id);
             response.Data = true;
 
