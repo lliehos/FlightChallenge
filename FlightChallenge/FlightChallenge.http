@@ -1,6 +1,6 @@
 @FlightChallenge_HostAddress = http://localhost:5224
 
-GET {{FlightChallenge_HostAddress}}/weatherforecast/
+GET {{FlightChallenge_HostAddress}}/Health/
 Accept: application/json
 
 ###

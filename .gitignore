@@ -49,5 +49,4 @@ wwwroot/
 # Local db files for SQL LocalDB
 *.mdf
 *.ldf
-/FlightChallenge/logs/log-20250108.txt
-/FlightChallenge/logs/log-20250109.txt
+/FlightChallenge/logs/
