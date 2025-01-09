@@ -50,3 +50,6 @@ wwwroot/
 *.mdf
 *.ldf
 /FlightChallenge/logs/
+/FlightChallenge/flights.db
+/FlightChallenge/flights.db-shm
+/FlightChallenge/flights.db-wal
