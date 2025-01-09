@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FlightChallenge.Infrastructure.Repositories
 {
+
     public class BookingRepository : IBookingRepository
     {
         private readonly AppDbContext _context;

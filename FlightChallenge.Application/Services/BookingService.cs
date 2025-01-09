@@ -32,10 +32,10 @@ namespace FlightChallenge.Application.Services
             _bookingUpdateValidator = bookingUpdateValidator;
         }
 
-        public async Task<ServiceResponse<BookingCrateDto>> AddBookingAsync(BookingCrateDto bookingDto)
+        public async Task<ServiceResponse<BookingDto>> AddBookingAsync(BookingCrateDto bookingDto)
         {
             var validationResult = await _bookingValidator.ValidateAsync(bookingDto);
-            var response = new ServiceResponse<BookingCrateDto>();
+            var response = new ServiceResponse<BookingDto>();
 
             if (!validationResult.IsValid)
             {
@@ -64,15 +64,15 @@ namespace FlightChallenge.Application.Services
             booking.BookingDate = DateTime.Now; // Set the booking date
 
             var addedBooking = await _bookingRepository.AddBookingAsync(booking);
-            response.Data = _mapper.Map<BookingCrateDto>(addedBooking);
+            response.Data = _mapper.Map<BookingDto>(addedBooking);
 
             return response;
         }
 
-        public async Task<ServiceResponse<BookingCrateDto>> UpdateBookingAsync(int id, BookingUpdateDto bookingUpdateDto)
+        public async Task<ServiceResponse<BookingDto>> UpdateBookingAsync(int id, BookingUpdateDto bookingUpdateDto)
         {
             var validationResult = await _bookingUpdateValidator.ValidateAsync(bookingUpdateDto);
-            var response = new ServiceResponse<BookingCrateDto>();
+            var response = new ServiceResponse<BookingDto>();
 
             if (!validationResult.IsValid)
             {
@@ -89,7 +89,7 @@ namespace FlightChallenge.Application.Services
 
             _mapper.Map(bookingUpdateDto, bookingEntity);
             var updatedBooking = await _bookingRepository.UpdateBookingAsync(bookingEntity);
-            response.Data = _mapper.Map<BookingCrateDto>(updatedBooking);
+            response.Data = _mapper.Map<BookingDto>(updatedBooking);
 
             return response;
         }
@@ -118,9 +118,9 @@ namespace FlightChallenge.Application.Services
             return response;
         }
 
-        public async Task<ServiceResponse<BookingCrateDto>> GetBookingByIdAsync(int id)
+        public async Task<ServiceResponse<BookingDto>> GetBookingByIdAsync(int id)
         {
-            var response = new ServiceResponse<BookingCrateDto>();
+            var response = new ServiceResponse<BookingDto>();
 
             var booking = await _bookingRepository.GetBookingByIdAsync(id);
             if (booking == null)
@@ -129,26 +129,26 @@ namespace FlightChallenge.Application.Services
                 return response;
             }
 
-            response.Data = _mapper.Map<BookingCrateDto>(booking);
+            response.Data = _mapper.Map<BookingDto>(booking);
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<BookingCrateDto>>> GetBookingsByFlightIdAsync(int flightId, int page = 1, int count = 10)
+        public async Task<ServiceResponse<IEnumerable<BookingDto>>> GetBookingsByFlightIdAsync(int flightId, int page = 1, int count = 10)
         {
-            var response = new ServiceResponse<IEnumerable<BookingCrateDto>>();
+            var response = new ServiceResponse<IEnumerable<BookingDto>>();
 
             var bookings = await _bookingRepository.GetBookingsByFlightIdAsync(flightId, page, count);
-            response.Data = _mapper.Map<IEnumerable<BookingCrateDto>>(bookings);
+            response.Data = _mapper.Map<IEnumerable<BookingDto>>(bookings);
 
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<BookingCrateDto>>> GetBookingsByPassengerIdAsync(int passengerId, int page = 1, int count = 10)
+        public async Task<ServiceResponse<IEnumerable<BookingDto>>> GetBookingsByPassengerIdAsync(int passengerId, int page = 1, int count = 10)
         {
-            var response = new ServiceResponse<IEnumerable<BookingCrateDto>>();
+            var response = new ServiceResponse<IEnumerable<BookingDto>>();
 
             var bookings = await _bookingRepository.GetBookingsByPassengerIdAsync(passengerId, page, count);
-            response.Data = _mapper.Map<IEnumerable<BookingCrateDto>>(bookings);
+            response.Data = _mapper.Map<IEnumerable<BookingDto>>(bookings);
 
             return response;
         }

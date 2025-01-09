@@ -13,6 +13,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FlightChallenge.Application.Services
 {
+
     public class FlightService : IFlightService
     {
         private readonly IFlightRepository _flightRepository;

@@ -46,6 +46,8 @@ try
     builder.Services.AddValidatorsFromAssemblyContaining<UpdateFlightDtoValidator>();
     builder.Services.AddValidatorsFromAssemblyContaining<BookingCreateValidator>();
     builder.Services.AddValidatorsFromAssemblyContaining<BookingUpdateValidator>();
+    builder.Services.AddValidatorsFromAssemblyContaining<PassengerCreateDtoValidator>();
+    builder.Services.AddValidatorsFromAssemblyContaining<PassengerUpdateDtoValidator>();
 
     var app = builder.Build();
     using (var scope = app.Services.CreateScope())

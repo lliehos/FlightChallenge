@@ -1,33 +1,64 @@
 ﻿using FlightChallenge.Domain.Entities;
 using FlightChallenge.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace FlightChallenge.Infrastructure.Repositories
 {
     public class PassengerRepository : IPassengerRepository
     {
-        public Task AddPassengerAsync(Passenger passenger)
+        private readonly AppDbContext _context;
+
+        public PassengerRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeletePassengerAsync(int id)
+        // دریافت یک مسافر بر اساس شناسه
+        public async Task<Passenger> GetPassengerByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Passengers
+                .Where(p => p.Id == id)
+                .FirstOrDefaultAsync();
         }
 
-        public Task<Passenger> GetPassengerByIdAsync(int id)
+        // دریافت تمامی مسافران با صفحه‌بندی
+        public async Task<IEnumerable<Passenger>> GetPassengersAsync(int page, int count)
         {
-            throw new NotImplementedException();
+            return await _context.Passengers
+                .Skip((page - 1) * count)
+                .Take(count)
+                .ToListAsync();
         }
 
-        public Task<IEnumerable<Passenger>> GetPassengersAsync()
+        // اضافه کردن مسافر جدید
+        public async Task<Passenger> AddPassengerAsync(Passenger passenger)
         {
-            throw new NotImplementedException();
+            await _context.Passengers.AddAsync(passenger);
+            await _context.SaveChangesAsync();
+            return passenger;
         }
 
-        public Task UpdatePassengerAsync(Passenger passenger)
+        // به‌روزرسانی اطلاعات مسافر
+        public async Task<Passenger> UpdatePassengerAsync(Passenger passenger)
         {
-            throw new NotImplementedException();
+            _context.Passengers.Update(passenger);
+            await _context.SaveChangesAsync();
+            return passenger;
+        }
+
+        // حذف مسافر
+        public async Task<bool> DeletePassengerAsync(int id)
+        {
+            var passenger = await GetPassengerByIdAsync(id);
+            if (passenger == null)
+            {
+                return false;
+            }
+
+            _context.Passengers.Remove(passenger);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
+
 }

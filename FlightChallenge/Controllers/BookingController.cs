@@ -48,7 +48,7 @@ namespace FlightChallenge.Controllers
             {
                 return BadRequest(result.Errors);
             }
-            return CreatedAtAction(nameof(GetBookingByIdAsync), new { id = result.Data?.Id }, result.Data);
+            return Ok(result.Data);
         }
 
         [HttpPut("{id}")]
