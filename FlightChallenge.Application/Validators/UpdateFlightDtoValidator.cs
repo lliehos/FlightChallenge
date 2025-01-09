@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace FlightChallenge.Application.Validators
 {
-    public class CreateFlightDtoValidator : AbstractValidator<FlightCreateDto>
+    public class UpdateFlightDtoValidator : AbstractValidator<FlightUpdateDto>
     {
-        public CreateFlightDtoValidator()
+        public UpdateFlightDtoValidator()
         {
             RuleFor(x => x.FlightNumber).NotEmpty().WithMessage("Flight code is required.");
             RuleFor(x => x.DepartureTime).GreaterThan(DateTime.Now).WithMessage("Departure time must be in the future.");

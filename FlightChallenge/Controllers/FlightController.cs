@@ -55,5 +55,18 @@ namespace FlightChallenge.Controllers
             }
             return BadRequest(updatedFlight.Errors);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteFlight(int id)
+        {
+            var result = await _flightService.DeleteFlightAsync(id);
+
+            if (result == null)
+                return NotFound($"Flight with id {id} not found.");
+
+            if (!result.Value)
+                return BadRequest($"Cannot delete flight with id {id} because it has related bookings.");
+
+            return NoContent();
+        }
     }
 }

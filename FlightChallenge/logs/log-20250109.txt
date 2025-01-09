@@ -7,3 +7,31 @@
 2025-01-09 09:16:09.992 +03:30 [INF] Response Status Code: 200
 2025-01-09 09:16:20.899 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: ?page=1&count=5
 2025-01-09 09:16:20.961 +03:30 [INF] Response Status Code: 200
+2025-01-09 09:50:33.244 +03:30 [INF] Request: Method: POST, Path: /Booking, QueryString: 
+2025-01-09 09:50:33.287 +03:30 [ERR] An error occurred in the controller
+System.InvalidOperationException: Unable to resolve service for type 'FlightChallenge.Application.Interfaces.IBookingService' while attempting to activate 'FlightChallenge.Controllers.BookingController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method100(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-09 09:50:33.302 +03:30 [INF] Response Status Code: 500
+2025-01-09 12:44:37.557 +03:30 [INF] Request: Method: POST, Path: /Booking, QueryString: 
+2025-01-09 12:44:37.764 +03:30 [ERR] An error occurred in the controller
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FlightChallenge.Controllers.BookingController.AddBookingAsync(BookingCrateDto bookingDto) in E:\Web\FlightChallenge\FlightChallenge\FlightChallenge\Controllers\BookingController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-09 12:44:37.794 +03:30 [INF] Response Status Code: 500
+2025-01-09 12:55:13.433 +03:30 [INF] Request: Method: POST, Path: /Booking, QueryString: 
+2025-01-09 12:57:40.866 +03:30 [INF] Request: Method: POST, Path: /Booking, QueryString: 
+2025-01-09 12:59:39.996 +03:30 [INF] Request: Method: POST, Path: /Booking, QueryString: 
+2025-01-09 12:59:50.760 +03:30 [INF] Response Status Code: 400

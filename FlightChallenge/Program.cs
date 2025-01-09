@@ -1,3 +1,4 @@
+using FlightChallenge.Application.Dtos;
 using FlightChallenge.Application.Interfaces;
 using FlightChallenge.Application.Services;
 using FlightChallenge.Application.Validators;
@@ -30,13 +31,21 @@ try
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+
     builder.Services.AddScoped<IFlightRepository, FlightRepository>();
     builder.Services.AddScoped<IFlightService, FlightService>();
+    builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
+
+    builder.Services.AddScoped<IBookingService, BookingService>();
+    builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
     builder.Services.AddValidatorsFromAssemblyContaining<CreateFlightDtoValidator>();
     builder.Services.AddValidatorsFromAssemblyContaining<UpdateFlightDtoValidator>();
+    builder.Services.AddValidatorsFromAssemblyContaining<BookingCreateValidator>();
+    builder.Services.AddValidatorsFromAssemblyContaining<BookingUpdateValidator>();
 
     var app = builder.Build();
     using (var scope = app.Services.CreateScope())

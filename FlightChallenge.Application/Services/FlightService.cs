@@ -4,6 +4,7 @@ using FlightChallenge.Application.Interfaces;
 using FlightChallenge.Application.Validators;
 using FlightChallenge.Domain.Entities;
 using FlightChallenge.Domain.Interfaces;
+using FlightChallenge.Infrastructure.Repositories;
 using FluentValidation;
 using System;
 using System.Runtime.InteropServices.JavaScript;
@@ -15,6 +16,7 @@ namespace FlightChallenge.Application.Services
     public class FlightService : IFlightService
     {
         private readonly IFlightRepository _flightRepository;
+        private readonly IBookingRepository _bookingRepository;
         private readonly IMapper _mapper;
         private readonly IValidator<FlightCreateDto> _createFlightValidator;
         private readonly IValidator<FlightUpdateDto> _updateFlightValidator;
@@ -72,9 +74,19 @@ namespace FlightChallenge.Application.Services
             }
         }
 
-        public async Task<bool> DeleteFlightAsync(int id)
+        public async Task<bool?> DeleteFlightAsync(int id)
         {
-            return await _flightRepository.DeleteFlightAsync(id);
+            var flight = await _flightRepository.GetFlightByIdAsync(id);
+            if (flight == null)
+                return null;
+
+            var hasBookings = await _bookingRepository.AnyBookingForFlightAsync(id);
+            if (hasBookings)
+                return false;
+
+            await _flightRepository.DeleteFlightAsync(id);
+            return true;
         }
     }
+
 }
