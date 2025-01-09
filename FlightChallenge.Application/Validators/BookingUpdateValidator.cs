@@ -20,6 +20,9 @@ namespace FlightChallenge.Application.Validators
             RuleFor(x => x).MustAsync(async (booking, cancellation) =>
                  await HasAvailableSeat(booking.Id,booking.FlightId, booking.SeatNumber))
                  .WithMessage("The selected seat is not available.");
+            RuleFor(x => x).MustAsync(async (booking, cancellation) =>
+                 await HasValidPrice(booking.FlightId, booking.Price))
+                 .WithMessage("Price is invalid.");
         }
         private async Task<bool> HasAvailableSeat(int id,int flightId, int seatNumber)
         {
@@ -35,6 +38,15 @@ namespace FlightChallenge.Application.Validators
 
             var currentFlightBookingLists = await _bookingRepository.GetBookingsByFlightIdAsync(flightId);
             return currentFlightBookingLists != null && !currentFlightBookingLists.Any(p => p.SeatNumber == seatNumber && p.Id!=id);
+        }
+        private async Task<bool> HasValidPrice(int flightId, decimal price)
+        {
+            var flight = await _flightRepository.GetFlightByIdAsync(flightId);
+            if (flight == null)
+            {
+                return false;
+            }
+            return flight.Price == price;
         }
     }
 }
