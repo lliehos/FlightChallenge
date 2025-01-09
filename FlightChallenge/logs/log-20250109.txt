@@ -240,3 +240,18 @@ System.InvalidOperationException: No route matches the supplied values.
 2025-01-09 13:45:06.949 +03:30 [INF] Response Status Code: 200
 2025-01-09 13:45:22.873 +03:30 [INF] Request: Method: GET, Path: /Booking/by-flight/8, QueryString: ?page=1&count=10
 2025-01-09 13:45:22.897 +03:30 [INF] Response Status Code: 200
+2025-01-09 20:45:56.299 +03:30 [INF] Request: Method: GET, Path: /Flight/8, QueryString: 
+2025-01-09 20:45:56.610 +03:30 [INF] Response Status Code: 200
+2025-01-09 20:46:12.926 +03:30 [INF] Request: Method: GET, Path: /Passenger/8, QueryString: 
+2025-01-09 20:46:12.932 +03:30 [ERR] An error occurred in the controller
+System.InvalidOperationException: Unable to resolve service for type 'FlightChallenge.Application.Interfaces.IPassengerService' while attempting to activate 'FlightChallenge.Controllers.PassengerController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method82(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-01-09 20:46:12.968 +03:30 [INF] Response Status Code: 500
+2025-01-09 20:48:58.974 +03:30 [INF] Request: Method: GET, Path: /Passenger/8, QueryString: 
+2025-01-09 20:48:59.259 +03:30 [INF] Response Status Code: 200

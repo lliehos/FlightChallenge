@@ -35,13 +35,13 @@ try
     builder.Services.AddScoped<IFlightRepository, FlightRepository>();
     builder.Services.AddScoped<IFlightService, FlightService>();
     builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
-
+    builder.Services.AddScoped<IPassengerService, PassengerService>();
     builder.Services.AddScoped<IBookingService, BookingService>();
     builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-    builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
+    builder.Services.AddValidatorsFromAssemblyContaining<Program>();
     builder.Services.AddValidatorsFromAssemblyContaining<CreateFlightDtoValidator>();
     builder.Services.AddValidatorsFromAssemblyContaining<UpdateFlightDtoValidator>();
     builder.Services.AddValidatorsFromAssemblyContaining<BookingCreateValidator>();
