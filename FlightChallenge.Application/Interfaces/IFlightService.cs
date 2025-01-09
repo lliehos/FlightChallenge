@@ -10,7 +10,7 @@ namespace FlightChallenge.Application.Interfaces
     public interface IFlightService
     {
         Task<FlightDto> GetFlightByIdAsync(int id);
-        Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate);
+        Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate, int page = 1, int count = 10);
         Task<ServiceResponse<FlightDto>> AddFlightAsync(FlightCreateDto flight);
         Task<ServiceResponse<FlightDto>> UpdateFlightAsync(int id, FlightUpdateDto flight);
         Task<bool> DeleteFlightAsync(int id);

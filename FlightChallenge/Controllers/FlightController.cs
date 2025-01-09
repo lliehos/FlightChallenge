@@ -25,11 +25,10 @@ namespace FlightChallenge.Controllers
 
             return Ok(flight);
         }
-
         [HttpGet]
-        public async Task<IActionResult> GetFlights([FromQuery] string? origin, [FromQuery] string? destination, [FromQuery] DateTime? departureDate)
+        public async Task<IActionResult> GetFlights([FromQuery] string? origin, [FromQuery] string? destination, [FromQuery] DateTime? departureDate, int page = 1, int count = 10)
         {
-            var flights = await _flightService.GetFlightsAsync(origin, destination, departureDate);
+            var flights = await _flightService.GetFlightsAsync(origin, destination, departureDate,page,count);
             return Ok(flights);
         }
         [HttpPost]

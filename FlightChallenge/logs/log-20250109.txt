@@ -1,0 +1,9 @@
+2025-01-09 09:14:03.111 +03:30 [INF] Request: Method: GET, Path: /api/Flight/1/10, QueryString: 
+2025-01-09 09:14:03.359 +03:30 [INF] Response Status Code: 200
+2025-01-09 09:14:53.769 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: ?page=1&count=2
+2025-01-09 09:14:53.987 +03:30 [INF] Response Status Code: 200
+2025-01-09 09:15:28.566 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: ?page=1&count=2
+2025-01-09 09:16:09.790 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: ?page=1&count=2
+2025-01-09 09:16:09.992 +03:30 [INF] Response Status Code: 200
+2025-01-09 09:16:20.899 +03:30 [INF] Request: Method: GET, Path: /api/Flight, QueryString: ?page=1&count=5
+2025-01-09 09:16:20.961 +03:30 [INF] Response Status Code: 200

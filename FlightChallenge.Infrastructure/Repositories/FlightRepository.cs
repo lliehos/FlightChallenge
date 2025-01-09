@@ -18,7 +18,7 @@ namespace FlightChallenge.Infrastructure.Repositories
             return await _context.Flights.FirstOrDefaultAsync(f => f.Id == id);
         }
 
-        public async Task<IEnumerable<Flight>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate)
+        public async Task<IEnumerable<Flight>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate, int page=1, int count=10)
         {
             var query = _context.Flights.AsQueryable();
 
@@ -31,6 +31,7 @@ namespace FlightChallenge.Infrastructure.Repositories
             if (departureDate.HasValue)
                 query = query.Where(f => f.DepartureTime.Date == departureDate.Value.Date);
 
+                query = query.OrderByDescending(p=>p.Id).Skip((page-1)*count).Take(count);
             return await query.ToListAsync();
         }
 

@@ -33,9 +33,9 @@ namespace FlightChallenge.Application.Services
             return _mapper.Map<FlightDto>(flight);
         }
 
-        public async Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate)
+        public async Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate, int page = 1, int count = 10)
         {
-            var flights = await _flightRepository.GetFlightsAsync(origin, destination, departureDate);
+            var flights = await _flightRepository.GetFlightsAsync(origin, destination, departureDate,page,count);
             return _mapper.Map<IEnumerable<FlightDto>>(flights);
         }
 
