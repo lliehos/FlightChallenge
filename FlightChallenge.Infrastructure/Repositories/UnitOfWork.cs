@@ -24,7 +24,7 @@ namespace FlightChallenge.Infrastructure.Repositories
 
         public IPassengerRepository Passengers => _passengerRepository;
 
-        public IBookingRepository Bookings => _bookingRepositoryB;
+        public IBookingRepository Bookings => _bookingRepository;
 
         public async Task<int> CommitAsync()
         {

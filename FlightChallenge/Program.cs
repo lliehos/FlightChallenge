@@ -40,6 +40,8 @@ try
     builder.Services.AddSwaggerGen();
     builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
     builder.Services.AddScoped<IFlightRepository, FlightRepository>();
     builder.Services.AddScoped<IFlightService, FlightService>();
     builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
