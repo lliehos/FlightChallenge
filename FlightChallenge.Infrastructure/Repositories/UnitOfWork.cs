@@ -1,23 +1,38 @@
-﻿using FlightChallenge.Domain.Interfaces;
+﻿using System;
+using System.Threading.Tasks;
+using FlightChallenge.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace FlightChallenge.Infrastructure.Repositories
 {
+
     public class UnitOfWork : IUnitOfWork
     {
-        public IFlightRepository Flights => throw new NotImplementedException();
+        private readonly AppDbContext _context;
+        private IFlightRepository _flightRepository;
+        private IPassengerRepository _passengerRepository;
+        private IBookingRepository _bookingRepository;
 
-        public IPassengerRepository Passengers => throw new NotImplementedException();
-
-        public IBookingRepository Bookings => throw new NotImplementedException();
-
-        public Task<int> CommitAsync()
+        public UnitOfWork(AppDbContext context, IFlightRepository flightRepository, IPassengerRepository passengerRepository, IBookingRepository bookingRepository)
         {
-            throw new NotImplementedException();
+            _flightRepository = flightRepository;
+            _passengerRepository = passengerRepository;
+            _bookingRepository = bookingRepository;
         }
 
+        public IFlightRepository Flights => _flightRepository;
+
+        public IPassengerRepository Passengers => _passengerRepository;
+
+        public IBookingRepository Bookings => _bookingRepositoryB;
+
+        public async Task<int> CommitAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context?.Dispose();
         }
     }
 }
