@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightChallenge.Domain", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightChallenge.Infrastructure", "FlightChallenge.Infrastructure\FlightChallenge.Infrastructure.csproj", "{12743116-003C-4189-98C6-03F2E60E8EBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.FlightChallenge", "Test.FlightChallenge\Test.FlightChallenge.csproj", "{4A6B8A01-0874-4A00-8C75-D261A958F100}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{12743116-003C-4189-98C6-03F2E60E8EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12743116-003C-4189-98C6-03F2E60E8EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12743116-003C-4189-98C6-03F2E60E8EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A6B8A01-0874-4A00-8C75-D261A958F100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A6B8A01-0874-4A00-8C75-D261A958F100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A6B8A01-0874-4A00-8C75-D261A958F100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A6B8A01-0874-4A00-8C75-D261A958F100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

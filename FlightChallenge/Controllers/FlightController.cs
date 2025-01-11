@@ -25,8 +25,8 @@ namespace FlightChallenge.Controllers
             var flight = await _flightService.GetFlightByIdAsync(id);
             if (flight == null)
                 return NotFound();
-
-            return Ok(flight);
+            else
+                return Ok(flight);
         }
 
         [HttpGet]
@@ -43,7 +43,7 @@ namespace FlightChallenge.Controllers
             var createdFlight = await _flightService.AddFlightAsync(flight);
             if (createdFlight.Success)
             {
-                return CreatedAtAction(nameof(GetFlights), new { id = createdFlight.Data?.Id }, createdFlight.Data);
+                return Ok(createdFlight);
             }
             return BadRequest(createdFlight.Errors);
         }
