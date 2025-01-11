@@ -18,6 +18,15 @@ try
     {
         config.ReadFrom.Configuration(context.Configuration);
     });
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAll", builder =>
+        {
+            builder.AllowAnyOrigin() 
+                   .AllowAnyMethod() 
+                   .AllowAnyHeader();
+        });
+    });
     builder.Services.AddControllers(options =>
     {
         options.Filters.Add<ExceptionFilter>();
