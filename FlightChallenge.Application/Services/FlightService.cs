@@ -79,8 +79,7 @@ public class FlightService : IFlightService
             _mapper.Map(flight, flightEntity);
             var updatedFlight = await _flightRepository.UpdateFlightAsync(flightEntity);
             _cache.Remove($"flight_{id}");
-            _cache.Remove($"flights_{flight.Origin}_{flight.Destination}_{flight.DepartureTime.Date}");
-
+            _cache.Remove($"flights_{flight.Origin}_{flight.Destination}_{flight.DepartureTime}");
             return new ServiceResponse<FlightDto>() { Success = true, Data = _mapper.Map<FlightDto>(updatedFlight) };
         }
         else

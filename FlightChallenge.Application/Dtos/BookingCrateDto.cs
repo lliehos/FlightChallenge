@@ -1,5 +1,8 @@
-﻿namespace FlightChallenge.Application.Dtos
+﻿using Swashbuckle.AspNetCore.Annotations;
+
+namespace FlightChallenge.Application.Dtos
 {
+    [SwaggerSchema("Dto For new booking")]
     public class BookingCrateDto
     {
         public int FlightId { get; set; }
