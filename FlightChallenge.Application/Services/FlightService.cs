@@ -22,12 +22,13 @@ namespace FlightChallenge.Application.Services
         private readonly IValidator<FlightCreateDto> _createFlightValidator;
         private readonly IValidator<FlightUpdateDto> _updateFlightValidator;
 
-        public FlightService(IFlightRepository flightRepository, IMapper mapper, IValidator<FlightCreateDto> createFlightValidator, IValidator<FlightUpdateDto> updateFlightValidator)
+        public FlightService(IFlightRepository flightRepository, IMapper mapper, IValidator<FlightCreateDto> createFlightValidator, IValidator<FlightUpdateDto> updateFlightValidator, IBookingRepository bookingRepository)
         {
             _flightRepository = flightRepository;
             _mapper = mapper;
             _createFlightValidator = createFlightValidator;
             _updateFlightValidator = updateFlightValidator;
+            _bookingRepository = bookingRepository;
         }
 
         public async Task<FlightDto> GetFlightByIdAsync(int id)
@@ -62,6 +63,7 @@ namespace FlightChallenge.Application.Services
             var flightEntity = await _flightRepository.GetFlightByIdAsync(id);
             if (flightEntity == null)
                 return null;
+            flight.Id = id;
             var result = await _updateFlightValidator.ValidateAsync(flight);
             if (result.IsValid)
             {
