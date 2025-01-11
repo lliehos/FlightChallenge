@@ -8,6 +8,7 @@ using FlightChallenge.Infrastructure.Repositories;
 using FlightChallenge.Middlewares;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using Serilog;
 
 
@@ -49,6 +50,17 @@ try
     builder.Services.AddValidatorsFromAssemblyContaining<PassengerCreateDtoValidator>();
     builder.Services.AddValidatorsFromAssemblyContaining<PassengerUpdateDtoValidator>();
 
+    builder.Services.AddSwaggerGen(options =>
+    {
+        options.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "Flight API",
+            Version = "v1",
+            Description = "API for flight booking and management"
+        });
+        options.EnableAnnotations();
+    });
+
     var app = builder.Build();
     using (var scope = app.Services.CreateScope())
     {
@@ -57,6 +69,7 @@ try
         await DatabaseSeeder.SeedAsync(context);
     }
     app.UseMiddleware<ExceptionMiddleware>();
+
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();

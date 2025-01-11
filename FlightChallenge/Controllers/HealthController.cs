@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace FlightChallenge.Controllers
 {
@@ -7,6 +8,7 @@ namespace FlightChallenge.Controllers
     public class HealthController : ControllerBase
     {
         [HttpGet]
+        [SwaggerOperation(Summary = "Get the application health status", Description = "Returns the current health status of the application.")]
         public IActionResult GetServerStatus()
         {
             var serverStatus = new

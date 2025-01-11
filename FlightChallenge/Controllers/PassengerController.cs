@@ -1,6 +1,7 @@
 ﻿using FlightChallenge.Application.Dtos;
 using FlightChallenge.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace FlightChallenge.Controllers
 {
@@ -16,6 +17,7 @@ namespace FlightChallenge.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Get all passengers", Description = "Fetches a list of passengers based on provided filters.")]
         public async Task<IActionResult> GetPassengers([FromQuery] int page = 1, [FromQuery] int count = 10)
         {
             var response = await _passengerService.GetPassengersAsync(page, count);
@@ -27,6 +29,7 @@ namespace FlightChallenge.Controllers
         }
 
         [HttpGet("{id}")]
+        [SwaggerOperation(Summary = "Get a passenger by its ID", Description = "Fetches passenger details using the unique passenger ID.")]
         public async Task<IActionResult> GetPassenger(int id)
         {
             var response = await _passengerService.GetPassengerByIdAsync(id);
@@ -38,6 +41,7 @@ namespace FlightChallenge.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Create a new passenger", Description = "Creates a new passenger and returns the created passenger details.")]
         public async Task<IActionResult> AddPassenger([FromBody] PassengerCreateDto passengerDto)
         {
             var response = await _passengerService.AddPassengerAsync(passengerDto);
@@ -49,6 +53,7 @@ namespace FlightChallenge.Controllers
         }
 
         [HttpPut("{id}")]
+        [SwaggerOperation(Summary = "Update an existing passenger", Description = "Updates an existing passenger by its ID with the provided details.")]
         public async Task<IActionResult> UpdatePassenger(int id, [FromBody] PassengerUpdateDto passengerUpdateDto)
         {
             var response = await _passengerService.UpdatePassengerAsync(id, passengerUpdateDto);
@@ -60,6 +65,8 @@ namespace FlightChallenge.Controllers
         }
 
         [HttpDelete("{id}")]
+        [SwaggerOperation(Summary = "Delete a passenger", Description = "Deletes a passenger by its ID.")]
+
         public async Task<IActionResult> DeletePassenger(int id)
         {
             var response = await _passengerService.DeletePassengerAsync(id);
