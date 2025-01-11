@@ -22,8 +22,8 @@ namespace FlightChallenge.Controllers
             var flight = await _flightService.GetFlightByIdAsync(id);
             if (flight == null)
                 return NotFound();
-
-            return Ok(flight);
+            else
+                return Ok(flight);
         }
         [HttpGet]
         public async Task<IActionResult> GetFlights([FromQuery] string? origin, [FromQuery] string? destination, [FromQuery] DateTime? departureDate, int page = 1, int count = 10)
@@ -37,7 +37,7 @@ namespace FlightChallenge.Controllers
             var createdFlight = await _flightService.AddFlightAsync(flight);
             if (createdFlight.Success)
             {
-                return CreatedAtAction(nameof(GetFlights), new { id = createdFlight.Data?.Id }, createdFlight.Data);
+                return Ok(createdFlight);
             }
             return BadRequest(createdFlight.Errors);
         }

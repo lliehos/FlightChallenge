@@ -25,7 +25,7 @@ namespace Test.FlightChallenge.Controllers
         }
 
         [Fact]
-        public async Task AddFlightAsync_ShouldReturnCreatedResult_WhenFlightIsValid()
+        public async Task CreateFlight_ShouldReturnOk_WhenFlightIsCreated()
         {
             var flightCreateDto = new FlightCreateDto
             {
@@ -37,7 +37,6 @@ namespace Test.FlightChallenge.Controllers
                 AvailableSeats = 100,
                 Price = 199.99m
             };
-            Console.WriteLine(flightCreateDto);
             var flightDto = new FlightDto
             {
                 Id = 24,
@@ -49,24 +48,52 @@ namespace Test.FlightChallenge.Controllers
                 AvailableSeats = flightCreateDto.AvailableSeats,
                 Price = flightCreateDto.Price
             };
-            Console.WriteLine(flightDto);
             var response = new ServiceResponse<FlightDto>
             {
                 Data = flightDto,
                 Success = true,
                 Errors = new List<string>()   
             };
-            Console.WriteLine(response);
             _flightServiceMock.Setup(s => s.AddFlightAsync(flightCreateDto))
                 .ReturnsAsync(response);
-            Console.WriteLine("tsetstarted");
             var result = await _controller.CreateFlight(flightCreateDto); 
-            Console.WriteLine(result);
-            result.Should().BeOfType<CreatedAtActionResult>();
-            var createdFlight = (result as CreatedAtActionResult).Value as ServiceResponse<FlightDto>;
-            Console.WriteLine(createdFlight);
+            result.Should().BeOfType<OkObjectResult>();
+            var createdFlight = (result as OkObjectResult).Value as ServiceResponse<FlightDto>;
             createdFlight.Should().NotBeNull();
             createdFlight.Data.Should().BeEquivalentTo(flightDto);
         }
+        [Fact]
+        public async Task GetFlight_ShouldReturnOk_WhenFlightExists()
+        {
+            var flightId = 16;
+            var response = new FlightDto { Id = flightId, FlightNumber = "ABC123" };;
+            _flightServiceMock.Setup(s => s.GetFlightByIdAsync(flightId)).ReturnsAsync(response);
+            var result = await _controller.GetFlight(flightId);
+            result.Should().BeOfType<OkObjectResult>();
+            var okResult = result as OkObjectResult;
+        }
+
+        [Fact]
+        public async Task GetFlight_ShouldReturnNotFound_WhenFlightDoesNotExist()
+        {
+            _flightServiceMock.Setup(s => s.GetFlightByIdAsync(100));
+            var result = await _controller.GetFlight(100);
+            result.Should().BeOfType<NotFoundResult>();
+        }
+
+
+        [Fact]
+        public async Task CreateFlight_ShouldReturnBadRequest_WhenFlightCreationFails()
+        {
+            var flightCreateDto = new FlightCreateDto { FlightNumber = "ABC123" };
+            var response = new ServiceResponse<FlightDto> { Success = false, Errors = new List<string> { "Validation failed" } };
+
+            _flightServiceMock.Setup(s => s.AddFlightAsync(flightCreateDto)).ReturnsAsync(response);
+
+            var result = await _controller.CreateFlight(flightCreateDto);
+
+            result.Should().BeOfType<BadRequestObjectResult>();
+        }
+
     }
 }
