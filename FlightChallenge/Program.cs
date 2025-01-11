@@ -34,14 +34,12 @@ try
     });
     Log.Information("Starting up the application");
 
-    //Add Services
-    builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-    builder.Services.AddScoped<IFlightRepository, FlightRepository>();
+    builder.Services.AddMemoryCache();
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-
+    builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
     builder.Services.AddScoped<IFlightRepository, FlightRepository>();
     builder.Services.AddScoped<IFlightService, FlightService>();
     builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
