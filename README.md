@@ -50,8 +50,8 @@ This is a simple Travel Booking API built using .NET 8, Entity Framework Core, a
 Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/your-repo/travel-booking-api.git
-cd travel-booking-api
+git clone https://github.com/lliehos/FlightChallenge.git
+cd FlightChallenge
 ```
 
 ### 2. Set Up the Database
@@ -82,7 +82,7 @@ Once the application is running, navigate to `https://localhost:5001/swagger` to
 #### Create Flight
 
 ```http
-POST /api/flights
+POST /flights
 ```
 
 - **Summary**: Create a new flight.
@@ -91,7 +91,7 @@ POST /api/flights
 #### Get Flights
 
 ```http
-GET /api/flights
+GET /flights
 ```
 
 - **Summary**: Retrieve flights with optional filters.
@@ -100,7 +100,7 @@ GET /api/flights
 #### Get Flight by ID
 
 ```http
-GET /api/flights/{id}
+GET /flights/{id}
 ```
 
 - **Summary**: Fetches flight details using the unique flight ID.
@@ -108,7 +108,7 @@ GET /api/flights/{id}
 #### Update Flight
 
 ```http
-PUT /api/flights/{id}
+PUT /flights/{id}
 ```
 
 - **Summary**: Update the details of a flight.
@@ -117,7 +117,7 @@ PUT /api/flights/{id}
 #### Delete Flight
 
 ```http
-DELETE /api/flights/{id}
+DELETE /flights/{id}
 ```
 
 - **Summary**: Delete a flight.
@@ -127,7 +127,7 @@ DELETE /api/flights/{id}
 #### Create Passenger
 
 ```http
-POST /api/passengers
+POST /passengers
 ```
 
 - **Summary**: Create a new passenger.
@@ -136,7 +136,7 @@ POST /api/passengers
 #### Get Passenger
 
 ```http
-GET /api/passengers/{id}
+GET /passengers/{id}
 ```
 
 - **Summary**: Retrieve passenger details by ID.
@@ -144,7 +144,7 @@ GET /api/passengers/{id}
 #### Update Passenger
 
 ```http
-PUT /api/passengers/{id}
+PUT /passengers/{id}
 ```
 
 - **Summary**: Update the details of a passenger.
@@ -153,7 +153,7 @@ PUT /api/passengers/{id}
 #### Delete Passenger
 
 ```http
-DELETE /api/passengers/{id}
+DELETE /passengers/{id}
 ```
 
 - **Summary**: Delete a passenger.
@@ -163,7 +163,7 @@ DELETE /api/passengers/{id}
 #### Create Booking
 
 ```http
-POST /api/bookings
+POST /bookings
 ```
 
 - **Summary**: Create a new booking for a passenger if seats are available.
@@ -172,7 +172,7 @@ POST /api/bookings
 #### Get Bookings by Flight
 
 ```http
-GET /api/bookings/flight/{flightId}
+GET /bookings/flight/{flightId}
 ```
 
 - **Summary**: Retrieve all bookings for a specific flight.
@@ -180,7 +180,7 @@ GET /api/bookings/flight/{flightId}
 #### Delete Booking
 
 ```http
-DELETE /api/bookings/{id}
+DELETE /bookings/{id}
 ```
 
 - **Summary**: Delete a booking.
