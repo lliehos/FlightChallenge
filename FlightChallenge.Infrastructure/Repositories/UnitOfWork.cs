@@ -15,6 +15,7 @@ namespace FlightChallenge.Infrastructure.Repositories
 
         public UnitOfWork(AppDbContext context, IFlightRepository flightRepository, IPassengerRepository passengerRepository, IBookingRepository bookingRepository)
         {
+            _context = context;
             _flightRepository = flightRepository;
             _passengerRepository = passengerRepository;
             _bookingRepository = bookingRepository;

@@ -14,7 +14,7 @@ namespace FlightChallenge.Infrastructure.Repositories
         }
 
         // دریافت یک مسافر بر اساس شناسه
-        public async Task<Passenger> GetPassengerByIdAsync(int id)
+        public async Task<Passenger?> GetPassengerByIdAsync(int id)
         {
             return await _context.Passengers
                 .Where(p => p.Id == id)

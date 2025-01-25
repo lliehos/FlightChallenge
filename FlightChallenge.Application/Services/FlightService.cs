@@ -5,6 +5,7 @@ using FlightChallenge.Domain.Entities;
 using FlightChallenge.Domain.Interfaces;
 using FluentValidation;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
 
 public class FlightService : IFlightService
 {
@@ -14,8 +15,9 @@ public class FlightService : IFlightService
     private readonly IValidator<FlightCreateDto> _createFlightValidator;
     private readonly IValidator<FlightUpdateDto> _updateFlightValidator;
     private readonly IMemoryCache _cache;
+    private readonly int _catchDuration = 0;
 
-    public FlightService(IFlightRepository flightRepository, IMapper mapper, IValidator<FlightCreateDto> createFlightValidator, IValidator<FlightUpdateDto> updateFlightValidator, IBookingRepository bookingRepository, IMemoryCache cache)
+    public FlightService(IConfiguration configuration, IFlightRepository flightRepository, IMapper mapper, IValidator<FlightCreateDto> createFlightValidator, IValidator<FlightUpdateDto> updateFlightValidator, IBookingRepository bookingRepository, IMemoryCache cache)
     {
         _flightRepository = flightRepository;
         _mapper = mapper;
@@ -23,28 +25,29 @@ public class FlightService : IFlightService
         _updateFlightValidator = updateFlightValidator;
         _bookingRepository = bookingRepository;
         _cache = cache;
+        _catchDuration = configuration.GetValue<int>("CatchDuration");
     }
 
-    public async Task<FlightDto> GetFlightByIdAsync(int id)
+    public async Task<FlightDto?> GetFlightByIdAsync(int id)
     {
-        var cacheKey = $"flight_{id}";
-        if (!_cache.TryGetValue(cacheKey, out FlightDto flight))
+         var cacheKey = $"flight_{id}";
+        if (!_cache.TryGetValue(cacheKey, out FlightDto? flight))
         {
             var flightEntity = await _flightRepository.GetFlightByIdAsync(id);
             flight = _mapper.Map<FlightDto>(flightEntity);
-            _cache.Set(cacheKey, flight, TimeSpan.FromMinutes(10));
+            _cache.Set(cacheKey, flight, TimeSpan.FromMinutes(_catchDuration));
         }
         return flight;
     }
 
-    public async Task<IEnumerable<FlightDto>> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate, int page = 1, int count = 10)
+    public async Task<IEnumerable<FlightDto>?> GetFlightsAsync(string? origin, string? destination, DateTime? departureDate, int page = 1, int count = 10)
     {
         var cacheKey = $"flights_{origin}_{destination}_{departureDate}_{page}_{count}";
-        if (!_cache.TryGetValue(cacheKey, out IEnumerable<FlightDto> flights))
+        if (!_cache.TryGetValue(cacheKey, out IEnumerable<FlightDto>? flights))
         {
             var flightEntities = await _flightRepository.GetFlightsAsync(origin, destination, departureDate, page, count);
             flights = _mapper.Map<IEnumerable<FlightDto>>(flightEntities);
-            _cache.Set(cacheKey, flights, TimeSpan.FromMinutes(10));
+            _cache.Set(cacheKey, flights, TimeSpan.FromMinutes(_catchDuration));
         }
 
         return flights;

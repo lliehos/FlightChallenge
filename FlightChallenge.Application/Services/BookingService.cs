@@ -34,6 +34,7 @@ namespace FlightChallenge.Application.Services
 
         public async Task<ServiceResponse<BookingDto>> AddBookingAsync(BookingCrateDto bookingDto)
         {
+           
             var validationResult = await _bookingValidator.ValidateAsync(bookingDto);
             var response = new ServiceResponse<BookingDto>();
 

@@ -39,7 +39,7 @@ namespace FlightChallenge.Infrastructure.Repositories
             return true;
         }
 
-        public async Task<Booking> GetBookingByIdAsync(int id)
+        public async Task<Booking?> GetBookingByIdAsync(int id)
         {
             return await _context.Bookings
                 .FirstOrDefaultAsync(b => b.Id == id);

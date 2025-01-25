@@ -13,7 +13,7 @@ namespace FlightChallenge.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Flight> GetFlightByIdAsync(int id)
+        public async Task<Flight?> GetFlightByIdAsync(int id)
         {
             return await _context.Flights.FirstOrDefaultAsync(f => f.Id == id);
         }

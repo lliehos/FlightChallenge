@@ -10,7 +10,9 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Serilog;
-
+using Scrutor;
+using NetCore.AutoRegisterDi;
+using System.Reflection;
 
 try
 {
@@ -41,23 +43,32 @@ try
     builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-    builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-    builder.Services.AddScoped<IFlightRepository, FlightRepository>();
+    builder.Services.Scan(scan => scan
+    .FromAssemblyOf<FlightRepository>()
+    .AddClasses(classes => classes.InNamespaces("FlightChallenge.Infrastructure"))
+    .AsImplementedInterfaces()
+    .WithScopedLifetime());
+
+
     builder.Services.AddScoped<IFlightService, FlightService>();
-    builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
-    builder.Services.AddScoped<IPassengerService, PassengerService>();
     builder.Services.AddScoped<IBookingService, BookingService>();
-    builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+    builder.Services.AddScoped<IPassengerService, PassengerService>();
+
+
+    //builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+    //builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
+    //builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+    //builder.Services.AddScoped<IFlightRepository, FlightRepository>();
 
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-    builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+    //builder.Services.AddValidatorsFromAssemblyContaining<Program>();
     builder.Services.AddValidatorsFromAssemblyContaining<CreateFlightDtoValidator>();
-    builder.Services.AddValidatorsFromAssemblyContaining<UpdateFlightDtoValidator>();
-    builder.Services.AddValidatorsFromAssemblyContaining<BookingCreateValidator>();
-    builder.Services.AddValidatorsFromAssemblyContaining<BookingUpdateValidator>();
-    builder.Services.AddValidatorsFromAssemblyContaining<PassengerCreateDtoValidator>();
-    builder.Services.AddValidatorsFromAssemblyContaining<PassengerUpdateDtoValidator>();
+    //builder.Services.AddValidatorsFromAssemblyContaining<UpdateFlightDtoValidator>();
+    //builder.Services.AddValidatorsFromAssemblyContaining<BookingCreateValidator>();
+    //builder.Services.AddValidatorsFromAssemblyContaining<BookingUpdateValidator>();
+    //builder.Services.AddValidatorsFromAssemblyContaining<PassengerCreateDtoValidator>();
+    //builder.Services.AddValidatorsFromAssemblyContaining<PassengerUpdateDtoValidator>();
 
     builder.Services.AddSwaggerGen(options =>
     {

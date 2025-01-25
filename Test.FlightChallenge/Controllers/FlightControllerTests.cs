@@ -70,7 +70,6 @@ namespace Test.FlightChallenge.Controllers
             _flightServiceMock.Setup(s => s.GetFlightByIdAsync(flightId)).ReturnsAsync(response);
             var result = await _controller.GetFlight(flightId);
             result.Should().BeOfType<OkObjectResult>();
-            var okResult = result as OkObjectResult;
         }
 
         [Fact]

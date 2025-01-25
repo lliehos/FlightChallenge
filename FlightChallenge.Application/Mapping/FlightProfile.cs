@@ -19,22 +19,4 @@ namespace FlightChallenge.Application.Mapping
             CreateMap<FlightUpdateDto, Flight>().ReverseMap();
         }
     }
-    public class BookingProfile : Profile
-    {
-        public BookingProfile()
-        {
-            CreateMap<Booking, BookingDto>().ReverseMap();
-            CreateMap<BookingCrateDto, Booking>().ReverseMap();
-            CreateMap<BookingUpdateDto, Booking>().ReverseMap();
-        }
-    }
-    public class PassengerProfile : Profile
-    {
-        public PassengerProfile()
-        {
-            CreateMap<Passenger, PassengerDto>().ReverseMap();
-            CreateMap<PassengerCreateDto, Passenger>().ReverseMap();
-            CreateMap<PassengerUpdateDto, Passenger>().ReverseMap();
-        }
-    }
 }
